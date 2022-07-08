@@ -1,0 +1,16 @@
+{
+  "name": "ch-appraisal-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "AWS_PROFILE=ch-tutorial SLS_DEBUG=* sls offline --stage dev",
+    "deploy:dev": "SLS_DEBUG=* sls deploy --aws-profile ch-tutorial --stage dev"
+  },
+  "devDependencies": {
+    "serverless-offline": "^8.8.0"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
