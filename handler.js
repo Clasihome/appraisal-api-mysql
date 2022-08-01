@@ -1,5 +1,7 @@
-'use strict';
 const mysql = require('mysql');
+const bluebird = require("bluebird");
+
+
 
 const con = mysql.createConnection({
   host: "186.64.116.230",
@@ -9,11 +11,13 @@ const con = mysql.createConnection({
   port: 3306,
 });
 
+const db = bluebird.promisifyAll(con);
+
 module.exports.communeAll = async (event) => {
   try{
     con.connect();
 
-    const result = await con.query("SELECT * FROM comunas");
+    const result = await db.queryAsync("SELECT * FROM comunas");
 
     return {
       statusCode: 200,
